@@ -1,3 +1,4 @@
+clc, clear
 %Thomas Gatto 101039302
 x = @(t) exp(-1000*abs(t)); %creating function that will be reconstructed 
 Fs = 5000; %sampling frequency 
@@ -35,7 +36,7 @@ hold on
 plot(t_reconstructed, x(t_reconstructed))
 xlabel('t')
 ylabel('exp(-1000*abs(t))')
-title('Analog signal xa(t) with reconstructed signal from 1000 Hz')
+title('Analog signal xa(t) with reconstructed signal from 5000 Hz')
 legend('Reconstructed Signal', 'Original Signal')
 
 grid on
@@ -53,8 +54,8 @@ ax.XAxis.TickLabels = labels; % set
 
 hold off
 %% finding the maximum air 
-max_error5000 = max(abs(x(t_reconstructed)-x_reconstructed));
-fprintf("The maximum error when reconstructing using sinc at 5000 Hz is %f\n", max_error5000)
+max_error5000 = max(abs(x(t_reconstructed)-splineResult));
+fprintf("The maximum error when reconstructing using cubic spline at 5000 Hz is %f\n", max_error5000)
 
 %% Fs at 1000 Hz
 x = @(t) exp(-1000*abs(t)); %creating function that will be reconstructed 
@@ -116,4 +117,4 @@ hold off
 
 %% Finding the Maximum Error 
 max_error1000 = max(abs(x(t_reconstructed)-x_reconstructed));
-fprintf("The maximum error when reconstructing using sinc at 1000 Hz is %f\n", max_error1000)
+fprintf("The maximum error when reconstructing using cubic spline at 1000 Hz is %f\n", max_error1000)
