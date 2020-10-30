@@ -1,3 +1,4 @@
+clc, clear
 %% 1.1
 % See xa.m
 
@@ -47,7 +48,7 @@ hold on
 plot(t_reconstructed, x(t_reconstructed))
 xlabel('t')
 ylabel('exp(-1000*abs(t))')
-title('Analog signal xa(t) with reconstructed signal from 1000 Hz')
+title('Analog signal xa(t) with reconstructed signal from 5000 Hz')
 legend('Reconstructed Signal', 'Original Signal')
 
 grid on
